@@ -210,7 +210,6 @@ const Doc = () => {
                         </button>
                     </div>
                 ))}
-
                 <Tooltip id="dock-tooltip" place="top" className="tooltip" />
             </div>
         </section>
