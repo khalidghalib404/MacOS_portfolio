@@ -4,7 +4,7 @@ import gsap from "gsap";
 import {Draggable} from "gsap/Draggable";
 import Terminal from "#windows/Terminal.jsx";
 import TerminalWindow from "#windows/Terminal.jsx";
-import { Finder, Safari, TextFile } from '#windows/index.js';
+import { Finder, Safari, TextFile, ImageFile, Contact } from '#windows/index.js';
 import Resume from '#windows/Resume.jsx';
 import ResumeWindow from '#windows/Resume.jsx';
 
@@ -21,6 +21,8 @@ function App(props) {
             <ResumeWindow/>
             <Finder/>
             <TextFile/>
+            <ImageFile/>
+            <Contact/>
 
         </main>
     );

@@ -8,7 +8,7 @@ gsap.registerPlugin(Draggable, useGSAP);
 const WindowWrapper = (Component,windowKey) =>{
     const Wrapped = (props) => {
         const  {focusWindow, windows} = useWindowStore();
-        const {isOpen, zIndex} = windows[windowKey];
+        const {isOpen, zIndex, isMaximized} = windows[windowKey];
         const ref = useRef(null);
       
       useGSAP(() => { 
@@ -53,9 +53,34 @@ const WindowWrapper = (Component,windowKey) =>{
       
       
         if (!isOpen) return null;
-        return <section id={windowKey} ref={ref}  style={{zIndex, position: 'absolute', backgroundColor: 'white', border: '1px solid #ccc'}} className="absolute" data-x="50" data-y="50">
+        return <section
+            id={windowKey}
+            ref={ref}
+            style={{
+                zIndex,
+                position: 'absolute',
+                backgroundColor: 'white',
+                border: '1px solid #ccc',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                ...(isMaximized ? {
+                    width: '100vw',
+                    height: '100vh',
+                    top: 0,
+                    left: 0,
+                    transform: 'none'
+                } : {
+                    maxWidth: '90vw',
+                    maxHeight: '85vh'
+                })
+            }}
+            className="absolute"
+            data-x="50"
+            data-y="50"
+        >
            <Component {...props}/>
-            </section>
+        </section>
     }
 
 
