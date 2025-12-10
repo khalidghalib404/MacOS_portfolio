@@ -10,7 +10,7 @@ const TextFile = () => {
   // If no data, return null
   if (!data) return null
 
-  const { name, image, subtitle, description } = data
+  const { name, subtitle, description } = data
 
   return (
     <>
@@ -22,17 +22,6 @@ const TextFile = () => {
         {/* Title */}
         {name && (
           <h1 className='text-2xl font-bold mb-4'>{name}</h1>
-        )}
-
-        {/* Optional Image */}
-        {image && (
-          <div className='mb-6'>
-            <img 
-              src={image} 
-              alt={name || 'Text file image'} 
-              className='max-w-full h-auto rounded-lg'
-            />
-          </div>
         )}
 
         {/* Optional Subtitle */}
